@@ -1,0 +1,9 @@
+<h1>Add New Property</h1>
+
+
+<%= simple_form_for @property do |f| %>
+	<%= f.error_notification %>
+	<%= f.input :name %>
+	<%= f.input :address %>
+	<%= f.submit "Add property" %>
+<% end %>

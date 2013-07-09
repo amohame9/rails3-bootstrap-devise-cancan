@@ -1,8 +1,8 @@
 h1. First rails app 
 
-h2. Using rails3-bootstrap-devise-cancan rails starter app.
+ Using rails3-bootstrap-devise-cancan rails starter app.
 
-h3. By Abdishakur Mohamed
+h2. By Abdishakur Mohamed
 
 
 

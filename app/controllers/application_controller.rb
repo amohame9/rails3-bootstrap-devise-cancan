@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, :alert => exception.message
   end
 
+ def home
+ 	 @feed_items = current_user.feed.paginate(page: params[:page]) if signed_in
+ end
 end

@@ -1,0 +1,9 @@
+<h1>My Properties</h1>
+
+<ul class="users">
+  <% @property.each do |property| %>
+    <li>
+      <%=  link_to property.name, property %> <%= link_to property.address, property %>
+    </li>
+  <% end %>
+</ul>

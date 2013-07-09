@@ -1,0 +1,8 @@
+<h1>Update your property</h1>
+
+<%= simple_form_for @property do |f| %>
+	<%= f.error_notification %>
+	<%= f.input :name %>
+	<%= f.input :address %>
+	<%= f.submit "Save changes" %>
+<% end %>

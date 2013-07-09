@@ -55,6 +55,8 @@ describe User do
       @user = User.new(@attr)
     end
 
+    it { should respond_to(:property) }
+
     it "should have a password attribute" do
       @user.should respond_to(:password)
     end
@@ -97,7 +99,5 @@ describe User do
     it "should set the encrypted password attribute" do
       @user.encrypted_password.should_not be_blank
     end
-
   end
-
 end

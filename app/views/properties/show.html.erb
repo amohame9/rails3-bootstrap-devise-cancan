@@ -2,21 +2,15 @@
   <aside class="span4">
     <section>
       <h1>
-
-        <%= current_user.name %> 
+       My Properties 
       </h1>
-
-      <p><%= button_to "Add Property", addproperty_path%> </p>
     </section>
   </aside>
 
   <div class="span8">
-    <% if @user.properties.any? %>
-      <h3>Properties (<%= current_user.properties.count %>)</h3>
       <ol>
         <%= render @properties %>
       </ol>
       <%= will_paginate @properties %>
-    <% end %>
   </div>
 </div>

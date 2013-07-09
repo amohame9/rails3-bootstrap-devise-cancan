@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 ruby '1.9.3'
 gem 'rails', '3.2.13'
 gem 'sqlite3'
+gem 'will_paginate', '3.0.3'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -14,6 +15,7 @@ gem 'devise'
 gem 'figaro'
 gem 'rolify'
 gem 'simple_form'
+gem 'table_for_collection'
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
@@ -37,4 +39,5 @@ group :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'launchy'
+  gem 'faker'
 end
