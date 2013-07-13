@@ -1,19 +1,24 @@
 class PropertiesController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :correct_user,   only: :destroy
   
   
   def index
     @property= Property.all
   end
 
+
   def new
-    @property = current_user.properties.build if signed_in? 
+    @property = Property.new  
+    @property.build_address
   end
 
   def show
   	@property = Property.find(params[:id])
     @property = @user.properties.paginate(page: params[:page])
+
+    @addressable = Property.find(params[:property_id])
+    @address = @addressable.address
+
   end
 
   def edit
@@ -30,9 +35,9 @@ class PropertiesController < ApplicationController
     end
   end
 
-  def create
-    @properties = current_user.properties.build(params[:property])
-    if @properties.save
+   def create
+    @property = current_user.properties.build(params[:property])
+    if @property.save
       flash[:success] = " Property Added"
       redirect_to root_path
     else

@@ -1,0 +1,15 @@
+<h1>Addresses</h1>
+
+<div id="addresses">
+	<div class="address">
+<% if @address %>	
+  <% @addresses.each do |address| %>
+		<% @property.address.city %>
+		<% @property.address.county %>
+		<% @address.postcode %>
+		<% @address.street1 %>
+		<% @address.street2 %>
+	</div>
+  <% end %>
+<% end %>
+</div>

@@ -2,8 +2,10 @@
 
 
 <%= simple_form_for @property do |f| %>
-	<%= f.error_notification %>
-	<%= f.input :name %>
-	<%= f.input :address %>
-	<%= f.submit "Add property" %>
+ <%= f.error_notification %>
+  <%= f.input :name %>
+    <%= f.simple_fields_for :address do |address| %>
+      <%= render 'shared/address', :f => address %>
+ 	<%= f.submit %>
+ 	<% end %>
 <% end %>

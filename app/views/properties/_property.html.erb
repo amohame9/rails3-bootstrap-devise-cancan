@@ -3,14 +3,17 @@
 	<span>
 	
 	<ol>
-		
-
 	
-	<%= property.name %>
+	<tbody>
 
-	<%= link_to "delete", property, method: :delete,
-                                     data: { confirm: "You sure?" },
-                                     title: property.name %>
+		<tr>
+	  		<td><%= property.name %></td>  
+	 		<td><%= property.address.street1 %></td> 
+	 		<td><%= property.address.city %></td>
+	 		<td><%= property.address.county %></td>  
+	 		<td><%= property.address.postcode %></td> 
+		 </tr> 
+	</tbody>	
 
 
 	</ol>

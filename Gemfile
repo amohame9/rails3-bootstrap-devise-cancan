@@ -15,7 +15,9 @@ gem 'devise'
 gem 'figaro'
 gem 'rolify'
 gem 'simple_form'
-gem 'table_for_collection'
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+gem 'jquery-ui-rails'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_19, :rbx]
@@ -33,6 +35,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
 end
+
+group :production do
+  gem 'pg', '0.12.2'
+end
+
 group :test do
   gem 'capybara'
   gem 'cucumber-rails', :require=>false

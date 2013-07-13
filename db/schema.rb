@@ -11,15 +11,30 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130703204043) do
+ActiveRecord::Schema.define(:version => 20130710025336) do
+
+  create_table "addresses", :force => true do |t|
+    t.string   "street1"
+    t.string   "street2"
+    t.string   "city"
+    t.string   "county"
+    t.string   "postcode"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
 
   create_table "properties", :force => true do |t|
     t.string   "name"
-    t.string   "address"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
   end
+
+  add_index "properties", ["created_at"], :name => "index_properties_on_user_id_and_created_at"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
