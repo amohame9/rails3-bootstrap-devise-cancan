@@ -1,22 +1,25 @@
 class PropertiesController < ApplicationController
-  before_filter :authenticate_user!
+  
   
   
   def index
     @property= Property.all
+    @property = property.build
+
   end
 
 
   def new
     @property = Property.new  
     @property.build_address
+    @property.tenants.build
   end
 
   def show
-  	@property = Property.find(params[:id])
+  	@property = Property.find(params[:property])
     @property = @user.properties.paginate(page: params[:page])
-
-    @addressable = Property.find(params[:property_id])
+    @property = Property.find(params[:property])
+    @addressable = Property.find(params[:property])
     @address = @addressable.address
 
   end
@@ -28,8 +31,7 @@ class PropertiesController < ApplicationController
   def update
   	@property = Property.find(params[:id])
     if @property.update_attributes(params[:property])
-      flash[:success] = "Property updated"
-      redirect_to @property
+      redirect_to (edit_building_path(@property))
     else
       render 'edit'
     end
@@ -39,17 +41,18 @@ class PropertiesController < ApplicationController
     @property = current_user.properties.build(params[:property])
     if @property.save
       flash[:success] = " Property Added"
-      redirect_to root_path
+      redirect_to(building_path(@property))
     else
       render 'edit'
     end
   end
 
   def destroy
-     @property.destroy
+    Property.find(params[:id]).destroy
+    flash[:success] = "Property destroyed."
     redirect_to root_url
   end
-
+ 
   private
 
     def correct_user

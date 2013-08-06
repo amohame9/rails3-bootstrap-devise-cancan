@@ -4,8 +4,7 @@ class Address < ActiveRecord::Base
 
   belongs_to :addressable, polymorphic: true
 
-  validates :city, presence: true,  length: { maximum: 200 }
-  validates :street1, presence: true
-  validates :postcode, presence: true
-  validates :county, presence: true
+  validates_presence_of :street1, :street2, :city, :postcode, :county
+
+  validates_uniqueness_of :postcode
 end

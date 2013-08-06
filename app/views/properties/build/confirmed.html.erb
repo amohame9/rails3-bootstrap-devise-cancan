@@ -1,0 +1,26 @@
+
+<table>                         
+  <tr>                          
+    <th>Title</th>
+    <th>Firstname</th>
+    <th>Surname</th>
+    <th>Date Of Birth</th>
+    <th>Telephone No</th>
+    <th>Contact Type</th>
+    <th>Email</th>
+  </tr>
+<% @property.tenants.each do |tenant| %>      
+  <tr>
+    <td><%= tenant.title %></td>  
+    <td><%= tenant.firstname %></td> 
+    <td><%= tenant.surname %></td>
+    <td><%= tenant.dateofbirth %></td>
+    <td><%= tenant.telno %></td>
+    <td><%= tenant.contact_type %></td>
+    <td><%= tenant.email %></td>
+
+  </tr>
+<% end %>                        
+</table>          
+
+<%= link_to 'skip', next_wizard_path %>

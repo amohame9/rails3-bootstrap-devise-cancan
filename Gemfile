@@ -17,6 +17,8 @@ gem 'rolify'
 gem 'simple_form'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'
+gem 'wicked'
+gem 'nested_form'
 
 group :development do
   gem 'better_errors'

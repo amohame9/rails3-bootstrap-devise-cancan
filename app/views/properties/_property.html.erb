@@ -1,27 +1,25 @@
+<span>
 
-
-	<span>
-	
 	<ol>
-	
+
 	<tbody>
 
 		<tr>
 	  		<td><%= property.name %></td>  
-	 		<td><%= property.address.street1 %></td> 
-	 		<td><%= property.address.city %></td>
-	 		<td><%= property.address.county %></td>  
-	 		<td><%= property.address.postcode %></td> 
+	 		<td><%= property.address.try(:street1) unless property.address.street1.blank? %></td> 
+	 		<td><%= property.address.try(:postcode) unless property.address.postcode.blank? %></td> 
+	 		<td><%= property.tenants.first.title if property.tenants.exists? %></td> 
+	 		<td><%= property.tenants.first.firstname if property.tenants.exists? %></td> 
+	 		<td><%= property.tenants.first.surname if property.tenants.exists? %></td>
+	 		<td><%= link_to 'Edit', edit_property_path(property) %></td>
+	 		<td> <%= link_to "Delete", property, method: :delete,
+                                  data: { confirm: "You sure?" } %></td>
 		 </tr> 
+
 	</tbody>	
 
 
 	</ol>
-			
-		
+
+
 	</span>
-          
-    		
-
-
-

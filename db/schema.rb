@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130710025336) do
+ActiveRecord::Schema.define(:version => 20130803171153) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street1"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130710025336) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
+    t.string   "status"
   end
 
   add_index "properties", ["created_at"], :name => "index_properties_on_user_id_and_created_at"
@@ -46,6 +47,19 @@ ActiveRecord::Schema.define(:version => 20130710025336) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"
   add_index "roles", ["name"], :name => "index_roles_on_name"
+
+  create_table "tenants", :force => true do |t|
+    t.string   "title"
+    t.string   "firstname"
+    t.string   "surname"
+    t.date     "dateofbirth"
+    t.integer  "telno"
+    t.string   "contact_type"
+    t.string   "email"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+    t.integer  "property_id"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

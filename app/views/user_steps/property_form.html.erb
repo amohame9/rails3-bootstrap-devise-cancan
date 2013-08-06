@@ -1,11 +1,8 @@
-<h1>Add New Property</h1>
-
-
-<%= simple_form_for @property do |f| %>
+<%= simple_form_for @property,url: wizard_path do |f| %>
  <%= f.error_notification %>
   <%= f.input :name %>
     <%= f.simple_fields_for :address do |address| %>
       <%= render 'shared/address', :f => address %>
- 	<%= f.submit %>
- 	<% end %>
+	<%= f.submit %>
+	<% end %>
 <% end %>
