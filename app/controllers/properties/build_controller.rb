@@ -1,11 +1,12 @@
 class Properties::BuildController < ApplicationController
   include Wicked::Wizard
 
-   steps :tenant, :confirmed 
+   steps :tenant, :meter, :confirmed 
 
   def show
     @property = Property.find(params[:property_id])
     @tenants = @property.tenants.new(params[:tenant_id])
+    @meter = @property.build_meter
     render_wizard
   end
 

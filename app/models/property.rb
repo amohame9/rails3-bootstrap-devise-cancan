@@ -1,5 +1,5 @@
 class Property < ActiveRecord::Base
-  attr_accessible  :name, :address_attributes, :tenants_attributes, :property_id, :status
+  attr_accessible  :name, :address_attributes, :tenants_attributes, :meter_attributes, :property_id, :status
   belongs_to :user 
 
 
@@ -11,6 +11,8 @@ class Property < ActiveRecord::Base
   has_many :tenants, :inverse_of => :property
   accepts_nested_attributes_for :tenants, :allow_destroy => true, :reject_if     => :all_blank
 
+  has_one :meter
+  accepts_nested_attributes_for :meter, :allow_destroy => true
 
 
   validates :name,      :presence => :true

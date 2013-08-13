@@ -13,6 +13,7 @@ class PropertiesController < ApplicationController
     @property = Property.new  
     @property.build_address
     @property.tenants.build
+    @property.build_meter
   end
 
   def show

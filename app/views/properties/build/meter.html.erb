@@ -1,0 +1,17 @@
+<h1>Meter Form</h1>
+
+
+
+<%= simple_form_for @property, :url => url_for(:action => 'update', :controller =>   'properties/build'), :method => 'put' do |f| %>
+  <%= f.simple_fields_for :meter do |builder| %>
+      <%= builder.input :EnergyMeter, as: :radio_buttons %>
+	  <%= builder.input :EnergyReading %>
+	  <%= builder.input :EnergyDate %>
+	  <%= builder.input :WaterMeter, as: :radio_buttons  %>
+	  <%= builder.input :WaterReading %>
+	  <%= builder.input :WaterDate %>
+	  <%= builder.submit %>
+  <% end %>
+<% end %>
+
+<%= link_to 'skip', next_wizard_path %>

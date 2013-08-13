@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130803171153) do
+ActiveRecord::Schema.define(:version => 20130813221240) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street1"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(:version => 20130803171153) do
 
   add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
 
+  create_table "meters", :force => true do |t|
+    t.boolean  "WaterMeter"
+    t.integer  "WaterReading"
+    t.date     "WaterDate"
+    t.boolean  "EnergyMeter"
+    t.integer  "EnergyReading"
+    t.date     "EnergyDate"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "property_id"
+  end
+
   create_table "properties", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
@@ -34,8 +46,6 @@ ActiveRecord::Schema.define(:version => 20130803171153) do
     t.integer  "user_id"
     t.string   "status"
   end
-
-  add_index "properties", ["created_at"], :name => "index_properties_on_user_id_and_created_at"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
