@@ -1,18 +1,17 @@
-<h1>tenants Form</h1>
+<h1>Tenants Form</h1>
 
 
-
-<%= simple_form_for @property, :url => url_for(:action => 'update', :controller =>   'properties/build'), :method => 'put' do |f| %>
-  <%= f.simple_fields_for :tenants do |builder| %>
-      <%= builder.input :title %>
-	  <%= builder.input :firstname %>
-	  <%= builder.input :surname %>
-	  <%= builder.input :dateofbirth %>
-	  <%= builder.input :telno %>
-	  <%= builder.select :contact_type, [ 'Cell', 'Work', 'Office', 'Home', 'Other' ], :prompt => 'Select One' %>
-	  <%= builder.input :email %>
-	  <%= builder.submit %>
-  <% end %>
-<% end %>
-
+	<%= simple_form_for @property, :url => url_for(:action => 'update', :controller =>   'properties/build'), :method => 'put',  defaults: { input_html: { class: "form-horizontal" } }   do |f| %>
+	  <%= f.simple_fields_for :tenants do |builder| %>
+	      <%= builder.input :title %>
+		  <%= builder.input :firstname %>
+		  <%= builder.input :surname %>
+		  <%= builder.input :dateofbirth %>
+		  <%= builder.input :telno %>
+		  <%= builder.select :contact_type, [ 'Cell', 'Work', 'Office', 'Home', 'Other' ], :prompt => 'Select One' %>
+		  <%= builder.input :email %>
+		  <%= builder.submit class: "btn btn-large btn-primary" %>
+	  <% end %>
+	<% end %>
+</form>
 <%= link_to 'skip', next_wizard_path %>

@@ -2,7 +2,7 @@
 
 
 
-<%= simple_form_for @property, :url => url_for(:action => 'update', :controller =>   'properties/build'), :method => 'put' do |f| %>
+<%= simple_form_for @property, :url => url_for(:action => 'update', :controller =>   'properties/build'), :method => 'put', defaults: { input_html: { class: "form-horizontal" } } do |f| %>
   <%= f.simple_fields_for :meter do |builder| %>
       <%= builder.input :EnergyMeter, as: :radio_buttons %>
 	  <%= builder.input :EnergyReading %>
@@ -10,7 +10,7 @@
 	  <%= builder.input :WaterMeter, as: :radio_buttons  %>
 	  <%= builder.input :WaterReading %>
 	  <%= builder.input :WaterDate %>
-	  <%= builder.submit %>
+	  <%= builder.submit class: "btn btn-large btn-primary" %>
   <% end %>
 <% end %>
 

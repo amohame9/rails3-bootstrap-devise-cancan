@@ -1,6 +1,10 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
   
 
+  get "static_pages/home"
+
+  get "static_pages/help"
+
   get "council_histories/create"
 
   get "council_history/create"
