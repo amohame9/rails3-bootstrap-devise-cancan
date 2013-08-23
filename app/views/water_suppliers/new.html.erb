@@ -1,0 +1,10 @@
+<h1>Add Water Supplier</h1>
+
+
+<%= simple_form_for @water_supplier do |f| %>
+ <%= f.error_notification %>
+      <%= f.input :WaterSupplierName %>
+		<%= f.input :WaterTel %>
+		<%= f.input :WaterEmail %>
+	 	<%= f.submit %>
+<% end %>

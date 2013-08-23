@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130813221240) do
+ActiveRecord::Schema.define(:version => 20130821180947) do
 
   create_table "addresses", :force => true do |t|
     t.string   "street1"
@@ -26,6 +26,31 @@ ActiveRecord::Schema.define(:version => 20130813221240) do
   end
 
   add_index "addresses", ["addressable_type", "addressable_id"], :name => "index_addresses_on_addressable_type_and_addressable_id", :unique => true
+
+  create_table "council_histories", :force => true do |t|
+    t.integer  "property_id"
+    t.integer  "council_id"
+    t.boolean  "vacant"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "councils", :force => true do |t|
+    t.string   "name"
+    t.integer  "CouncilTel"
+    t.string   "email"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "property_id"
+    t.integer  "council_history_id"
+  end
+
+  create_table "councils_properties", :force => true do |t|
+    t.integer  "property_id"
+    t.integer  "council_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
 
   create_table "meters", :force => true do |t|
     t.boolean  "WaterMeter"
@@ -45,6 +70,7 @@ ActiveRecord::Schema.define(:version => 20130813221240) do
     t.datetime "updated_at", :null => false
     t.integer  "user_id"
     t.string   "status"
+    t.integer  "council_id"
   end
 
   create_table "roles", :force => true do |t|

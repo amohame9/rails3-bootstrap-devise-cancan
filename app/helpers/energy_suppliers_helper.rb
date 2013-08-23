@@ -1,0 +1,2 @@
+module EnergySuppliersHelper
+end

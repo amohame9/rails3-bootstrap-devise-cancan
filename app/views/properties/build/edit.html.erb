@@ -9,7 +9,7 @@
 	  <%= builder.input :surname %>
 	  <%= builder.input :dateofbirth %>
 	  <%= builder.input :telno %>
-	  <%= builder.input :contact_type %>
+	  <%= builder.select :contact_type, [ 'Cell', 'Work', 'Office', 'Home', 'Other' ], :prompt => 'Select One' %>
 	  <%= builder.input :email %>
 	  <%= builder.submit %>
   <% end %>

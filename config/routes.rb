@@ -1,6 +1,13 @@
 Rails3BootstrapDeviseCancan::Application.routes.draw do
   
 
+  get "council_histories/create"
+
+  get "council_history/create"
+
+  resources :councils
+
+
   authenticated :user do
     root :to => 'home#index'
   end
@@ -12,6 +19,9 @@ Rails3BootstrapDeviseCancan::Application.routes.draw do
   end  
 
   resources :user_steps
+
+  resources :energy_suppliers
+  resources :water_suppliers
 
   match '/addproperty', to: 'properties#new'
   match '/signup', to: 'users#new'

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Councilname:</b>
+  <%= @council.name %>
+</p>
+
+<p>
+  <b>Counciltel:</b>
+  <%= @council.CouncilTel %>
+</p>
+
+<p>
+  <b>Councilemail:</b>
+  <%= @council.CouncilEmail %>
+</p>
+
+
+<%= link_to 'Edit', edit_council_path(@council) %> |
+<%= link_to 'Back', councils_path %>

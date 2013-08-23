@@ -1,0 +1,15 @@
+<h1>Select Council</h1>
+
+
+
+<%= simple_form_for @property, url: wizard_path, :method => 'put' do |f|  %>
+
+
+  <%= f.simple_fields_for :council_histories do |builder| %>
+	  <%= builder.input :property_id, as: :hidden, input_html: { value: @property.id } %> 
+      <%= builder.input :council_id, :collection => Council.all  %>
+       
+      <%= builder.submit %>
+    <% end %>
+<% end %>
+

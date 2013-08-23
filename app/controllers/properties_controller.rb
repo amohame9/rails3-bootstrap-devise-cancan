@@ -14,6 +14,7 @@ class PropertiesController < ApplicationController
     @property.build_address
     @property.tenants.build
     @property.build_meter
+    @property.council_histories.build
   end
 
   def show
@@ -22,6 +23,7 @@ class PropertiesController < ApplicationController
     @property = Property.find(params[:property])
     @addressable = Property.find(params[:property])
     @address = @addressable.address
+    @council = @property.council
 
   end
 

@@ -1,0 +1,10 @@
+<h1>Add Energy Supplier</h1>
+
+
+<%= simple_form_for @energy_supplier do |f| %>
+ <%= f.error_notification %>
+      <%= f.input :EnergySupplierName %>
+		<%= f.input :EnergyTel %>
+		<%= f.input :EnergyEmail %>
+	 	<%= f.submit %>
+<% end %>

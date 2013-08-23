@@ -17,10 +17,21 @@
     <td><%= tenant.dateofbirth %></td>
     <td><%= tenant.telno %></td>
     <td><%= tenant.contact_type %></td>
-    <td><%= tenant.email %></td>
-
   </tr>
-<% end %>                        
-</table>          
+<% end %>               
+</table>    
+
+ <table>                         
+              <tr>                          
+              <th>Council Name</th>
+              <th>Council Email </th>
+            </tr>
+          <% @property.councils.each do |council| %>      
+            <tr>
+              <td><%= council.name %></td>   
+               <td><%= council.email %></td>  
+            </tr>
+          <% end %>               
+      </table> 
 
 <%= link_to 'skip', next_wizard_path %>
